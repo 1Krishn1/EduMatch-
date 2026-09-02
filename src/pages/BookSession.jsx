@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import { useBookings } from '../context/BookingContext';
 
@@ -94,5 +95,26 @@ export default function BookSession({ tutorName = "Dr. Sarah Chen" }) {
         Confirm Booking
       </button>
     </form>
+=======
+// LOKESH: replace this page with the booking form and validation.
+import { useParams } from "react-router-dom";
+import EmptyState from "../components/ui/EmptyState";
+
+export default function BookSession() {
+  const { tutorId } = useParams();
+
+  return (
+    <section>
+      <h1>Book a session</h1>
+      <p className="muted">
+        Lokesh — build the form here.
+        {tutorId ? ` Pre-select tutor ${tutorId}.` : " No tutor selected yet."}
+      </p>
+      <EmptyState
+        title="Booking form coming soon"
+        message="Add name, email, subject, date/time and notes. Validate before submit. Save via BookingContext."
+      />
+    </section>
+>>>>>>> c9b7fa7 (Add EduMatch layout Home About and team placeholders)
   );
 }

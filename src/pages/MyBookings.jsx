@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { useBookings } from '../context/BookingContext';
 
@@ -55,5 +56,20 @@ export default function MyBookings() {
         </div>
       ))}
     </div>
+=======
+// LOKESH: replace this page with the bookings list and cancel button.
+import EmptyState from "../components/ui/EmptyState";
+
+export default function MyBookings() {
+  return (
+    <section>
+      <h1>My Bookings</h1>
+      <p className="muted">Lokesh — list bookings from BookingContext here.</p>
+      <EmptyState
+        title="No bookings yet"
+        message="When a booking is submitted, show it here with a cancel action."
+      />
+    </section>
+>>>>>>> c9b7fa7 (Add EduMatch layout Home About and team placeholders)
   );
 }
