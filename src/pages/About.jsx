@@ -17,9 +17,7 @@ export default function About() {
         </article>
         <article className="card">
           <h3>Mentors</h3>
-          <p className="muted">
-            Show subjects, rates and availability in one profile.
-          </p>
+          <p className="muted">Show subjects, rates and availability in one profile.</p>
         </article>
         <article className="card">
           <h3>This assignment</h3>

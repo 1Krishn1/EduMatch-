@@ -1,7 +1,7 @@
-export default function Spinner({ label = "Loading..." }) {
+export default function Spinner({ label = "Loading mentors..." }) {
   return (
-    <p className="muted" role="status">
-      {label}
-    </p>
+    <div className="card" role="status" aria-live="polite">
+      <p className="muted">{label}</p>
+    </div>
   );
 }

@@ -1,16 +1,33 @@
-// LOKESH: replace this starter with real addBooking / cancelBooking state.
-// Wrap the app with BookingProvider in main.jsx when you are ready.
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
+const STORAGE_KEY = "edumatch-bookings";
 const BookingContext = createContext(null);
 
+function loadBookings() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
+}
+
 export function BookingProvider({ children }) {
-  const [bookings, setBookings] = useState([]);
+  const [bookings, setBookings] = useState(loadBookings);
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(bookings));
+  }, [bookings]);
 
   const addBooking = (booking) => {
     setBookings((current) => [
+      {
+        id: `${Date.now()}`,
+        status: "confirmed",
+        createdAt: new Date().toISOString(),
+        ...booking,
+      },
       ...current,
-      { id: Date.now().toString(), ...booking },
     ]);
   };
 
@@ -18,10 +35,13 @@ export function BookingProvider({ children }) {
     setBookings((current) => current.filter((item) => item.id !== id));
   };
 
+  const value = useMemo(
+    () => ({ bookings, addBooking, cancelBooking }),
+    [bookings]
+  );
+
   return (
-    <BookingContext.Provider value={{ bookings, addBooking, cancelBooking }}>
-      {children}
-    </BookingContext.Provider>
+    <BookingContext.Provider value={value}>{children}</BookingContext.Provider>
   );
 }
 

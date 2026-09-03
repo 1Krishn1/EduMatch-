@@ -1,15 +1,25 @@
-// SUBODH: turn this into a real mentor card (name, subject, rate, rating).
 import { Link } from "react-router-dom";
+import Button from "../ui/Button.jsx";
 
 export default function TutorCard({ tutor }) {
-  const id = tutor?.id ?? "1";
-  const name = tutor?.name ?? "Tutor name";
-
   return (
-    <article className="card">
-      <h3>{name}</h3>
-      <p className="muted">Subodh — add subject, rate and rating.</p>
-      <Link to={`/mentors/${id}`}>View profile</Link>
+    <article className="card tutor-card">
+      <p className="eyebrow">{tutor.subject}</p>
+      <h3>
+        <Link to={`/mentors/${tutor.id}`}>{tutor.name}</Link>
+      </h3>
+      <p className="muted">{tutor.bio}</p>
+      <p className="meta">
+        <span>{tutor.rating.toFixed(1)} ★ ({tutor.reviews})</span>
+        <span>${tutor.rate}/hr</span>
+        <span>{tutor.mode}</span>
+      </p>
+      <div className="actions">
+        <Button to={`/mentors/${tutor.id}`} variant="ghost">
+          View profile
+        </Button>
+        <Button to={`/book/${tutor.id}`}>Book</Button>
+      </div>
     </article>
   );
 }

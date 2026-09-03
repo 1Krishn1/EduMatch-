@@ -6,8 +6,11 @@ export default function Button({
   variant = "primary",
   type = "button",
   onClick,
+  disabled = false,
 }) {
-  const className = `btn ${variant === "accent" ? "btn-accent" : ""}`;
+  const className = `btn ${variant === "accent" ? "btn-accent" : ""} ${
+    variant === "ghost" ? "btn-ghost" : ""
+  } ${variant === "danger" ? "btn-danger" : ""}`;
 
   if (to) {
     return (
@@ -18,7 +21,7 @@ export default function Button({
   }
 
   return (
-    <button className={className} type={type} onClick={onClick}>
+    <button className={className} type={type} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );

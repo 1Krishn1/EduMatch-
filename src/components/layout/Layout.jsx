@@ -1,16 +1,13 @@
 import { Outlet } from "react-router-dom";
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "./Header.jsx";
+import Footer from "./Footer.jsx";
 
 export default function Layout() {
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
+    <div className="app-shell">
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
       <Header />
       <main id="main" className="container page">
         <Outlet />

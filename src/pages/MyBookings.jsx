@@ -1,75 +1,33 @@
-<<<<<<< HEAD
-import React from 'react';
-import { useBookings } from '../context/BookingContext';
+import BookingCard from "../components/booking/BookingCard.jsx";
+import EmptyState from "../components/ui/EmptyState.jsx";
+import { useBookings } from "../context/BookingContext.jsx";
 
 export default function MyBookings() {
   const { bookings, cancelBooking } = useBookings();
 
   if (bookings.length === 0) {
     return (
-      <div style={{ textAlign: 'center', padding: '3rem' }}>
-        <h2>My Bookings</h2>
-        <p>No upcoming sessions scheduled yet.</p>
-      </div>
+      <section>
+        <h1>My bookings</h1>
+        <EmptyState
+          title="No sessions yet"
+          message="When you book a mentor, the session will show up here."
+          actionTo="/mentors"
+          actionLabel="Find a mentor"
+        />
+      </section>
     );
   }
 
   return (
-    <div style={{ maxWidth: '650px', margin: '2rem auto', padding: '0 1rem' }}>
-      <h2>My Scheduled Sessions</h2>
-      {bookings.map((item) => (
-        <div 
-          key={item.id} 
-          style={{ 
-            border: '1px solid #ccc', 
-            padding: '1.25rem', 
-            marginBottom: '1rem', 
-            borderRadius: '8px', 
-            display: 'flex', 
-            justify: 'space-between', 
-            alignItems: 'center', 
-            background: '#f9f9f9' 
-          }}
-        >
-          <div>
-            <h3 style={{ margin: '0 0 0.5rem 0' }}>Tutor: {item.tutorName}</h3>
-            <p style={{ margin: '0.25rem 0' }}>
-              <strong>Date:</strong> {item.date} | <strong>Time:</strong> {item.time}
-            </p>
-            <p style={{ margin: '0.25rem 0', color: '#555', fontSize: '0.9rem' }}>
-              Student: {item.studentName} ({item.email})
-            </p>
-          </div>
-          <button 
-            onClick={() => cancelBooking(item.id)}
-            style={{ 
-              background: '#d32f2f', 
-              color: '#fff', 
-              border: 'none', 
-              padding: '0.5rem 1rem', 
-              borderRadius: '4px', 
-              cursor: 'pointer' 
-            }}
-          >
-            Cancel Session
-          </button>
-        </div>
-      ))}
-    </div>
-=======
-// LOKESH: replace this page with the bookings list and cancel button.
-import EmptyState from "../components/ui/EmptyState";
-
-export default function MyBookings() {
-  return (
     <section>
-      <h1>My Bookings</h1>
-      <p className="muted">Lokesh — list bookings from BookingContext here.</p>
-      <EmptyState
-        title="No bookings yet"
-        message="When a booking is submitted, show it here with a cancel action."
-      />
+      <h1>My bookings</h1>
+      <p className="muted">{bookings.length} upcoming session{bookings.length === 1 ? "" : "s"}</p>
+      <div className="stack">
+        {bookings.map((booking) => (
+          <BookingCard key={booking.id} booking={booking} onCancel={cancelBooking} />
+        ))}
+      </div>
     </section>
->>>>>>> c9b7fa7 (Add EduMatch layout Home About and team placeholders)
   );
 }

@@ -1,9 +1,14 @@
-// SUBODH: map tutors to TutorCard here.
-import TutorCard from "./TutorCard";
+import TutorCard from "./TutorCard.jsx";
+import EmptyState from "../ui/EmptyState.jsx";
 
 export default function TutorList({ tutors = [] }) {
   if (tutors.length === 0) {
-    return <p className="muted">No tutors to show yet.</p>;
+    return (
+      <EmptyState
+        title="No mentors match those filters"
+        message="Try another subject, clear the search, or choose Any mode."
+      />
+    );
   }
 
   return (

@@ -1,11 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import Layout from "./components/layout/Layout";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Mentors from "./pages/Mentors";
-import TutorProfile from "./pages/TutorProfile";
-import BookSession from "./pages/BookSession";
-import MyBookings from "./pages/MyBookings";
+import Layout from "./components/layout/Layout.jsx";
+import Home from "./pages/Home.jsx";
+import About from "./pages/About.jsx";
+import Mentors from "./pages/Mentors.jsx";
+import TutorProfile from "./pages/TutorProfile.jsx";
+import BookSession from "./pages/BookSession.jsx";
+import MyBookings from "./pages/MyBookings.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="book/:tutorId" element={<BookSession />} />
         <Route path="bookings" element={<MyBookings />} />
         <Route path="about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer-inner">
         <p>EduMatch — tutor and academic mentor booking</p>
-        <p>ICT930 Assignment 2</p>
+        <p>ICT930 Assignment 2 · Frontend only</p>
       </div>
     </footer>
   );

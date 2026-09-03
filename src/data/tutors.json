@@ -5,7 +5,11 @@
     "subject": "Database Systems",
     "rate": 45,
     "rating": 4.8,
-    "bio": "Replace this sample list with a full set of mentors. Subodh owns this file."
+    "reviews": 36,
+    "mode": "Online",
+    "availability": "Weeknights",
+    "bio": "Helps students design ERDs, normalise to 3NF and write clearer SQL. Good for ICT911-style database units.",
+    "topics": ["ERD", "SQL", "Normalisation"]
   },
   {
     "id": "2",
@@ -13,6 +17,82 @@
     "subject": "Web Development",
     "rate": 50,
     "rating": 4.6,
-    "bio": "Add photo, availability and reviews when you build the profile page."
+    "reviews": 28,
+    "mode": "Online",
+    "availability": "Weekends",
+    "bio": "React, routing and component structure. Useful if your frontend assignment needs a clean folder layout.",
+    "topics": ["React", "CSS", "Accessibility"]
+  },
+  {
+    "id": "3",
+    "name": "Priya Nair",
+    "subject": "Cybersecurity",
+    "rate": 55,
+    "rating": 4.9,
+    "reviews": 41,
+    "mode": "Hybrid",
+    "availability": "Weeknights",
+    "bio": "Log analysis, threat basics and privacy. Explains ideas in plain English before moving to tools.",
+    "topics": ["Logs", "Privacy", "Risk"]
+  },
+  {
+    "id": "4",
+    "name": "James Okonkwo",
+    "subject": "Software Engineering",
+    "rate": 48,
+    "rating": 4.5,
+    "reviews": 19,
+    "mode": "In person",
+    "availability": "Afternoons",
+    "bio": "Requirements, use cases and UML. Helps teams split work without making the report messy.",
+    "topics": ["UML", "Requirements", "Agile"]
+  },
+  {
+    "id": "5",
+    "name": "Mei Chen",
+    "subject": "Cloud Computing",
+    "rate": 52,
+    "rating": 4.7,
+    "reviews": 24,
+    "mode": "Online",
+    "availability": "Mornings",
+    "bio": "Cloud case studies, shared responsibility and simple architecture diagrams for assignments.",
+    "topics": ["Azure", "Architecture", "Security"]
+  },
+  {
+    "id": "6",
+    "name": "Liam O'Connor",
+    "subject": "Project Management",
+    "rate": 40,
+    "rating": 4.4,
+    "reviews": 17,
+    "mode": "Hybrid",
+    "availability": "Weekends",
+    "bio": "WBS, risk registers and team contribution tables. Good when the group report is due soon.",
+    "topics": ["WBS", "Risk", "Stakeholder"]
+  },
+  {
+    "id": "7",
+    "name": "Sofia Alvarez",
+    "subject": "Data Analytics",
+    "rate": 47,
+    "rating": 4.8,
+    "reviews": 22,
+    "mode": "Online",
+    "availability": "Weeknights",
+    "bio": "Turns messy spreadsheet questions into charts and a short written finding.",
+    "topics": ["Excel", "Charts", "SQL"]
+  },
+  {
+    "id": "8",
+    "name": "Noah Patel",
+    "subject": "Web Development",
+    "rate": 42,
+    "rating": 4.3,
+    "reviews": 14,
+    "mode": "In person",
+    "availability": "Afternoons",
+    "bio": "HTML, forms and responsive layout. Patient with students who are new to JavaScript.",
+    "topics": ["HTML", "Forms", "Responsive"]
   }
 ]
