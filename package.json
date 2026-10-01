@@ -1,32 +1,8 @@
 {
   "name": "edumatch",
   "private": true,
-<<<<<<< HEAD
+  "version": "1.0.0",
   "scripts": {
-    "dev": "concurrently -n api,web -c blue,green \"npm run start --prefix backend\" \"npm run dev --prefix frontend\""
-  },
-  "devDependencies": {
-    "concurrently": "^9.1.2"
-=======
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "oxlint",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
-    "react-router-dom": "^7.18.3"
-  },
-  "devDependencies": {
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.4",
-    "@vitejs/plugin-react": "^6.1.0",
-    "oxlint": "^1.79.0",
-    "vite": "^8.2.2"
->>>>>>> 7ffcf583cb85e9449913045cd158ee8d7b443b6e
+    "dev": "echo Start backend and frontend in two terminals"
   }
 }
