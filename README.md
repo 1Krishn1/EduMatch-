@@ -1,43 +1,32 @@
-# EduMatch full stack
+# EduMatch
 
-ICT930 Assignment 3. React + Express + MySQL.
+EduMatch is a mentor booking desk for university students. A student searches by subject, not by a teacher name, then requests a session with a date and time. The teacher pastes a Teams, Zoom or Meet link and confirms. The student opens that link from My bookings. An admin sees student and teacher IDs and can reset a forgotten password. Admin does not book sessions.
 
-## Start MySQL
+Built for ICT930 Assessment 3 at CIHE. The React site never writes the database. It calls an Express API. MySQL stores users, mentors and bookings.
 
-1. Open XAMPP.
-2. Start MySQL. Apache is not needed.
-3. Default user is `root` with an empty password. That matches `backend/.env.example`.
+Team: Krishna Bahadur Budhathoki, Subodh Manandhar, Lok Raj Bhatta.
 
-Copy the example env file once:
+GitHub: https://github.com/1Krishn1/EduMatch-
 
-```powershell
-copy backend\.env.example backend\.env
-```
+## Stack
 
-## One install, then run
+- React 19 and React Router
+- Express REST API
+- MySQL through XAMPP, viewed in phpMyAdmin
+- JWT login and bcrypt password hashes
 
-```powershell
-cd C:\Users\dvlne\edumatch\backend
-npm install
-cd ..\frontend
-npm install
-cd ..\backend
-node src/server.js
-```
+## Run
 
-Second terminal:
-
-```powershell
-cd C:\Users\dvlne\edumatch\frontend
-node .\node_modules\vite\bin\vite.js
-```
-
-Open http://localhost:5173
-
-The API creates the `edumatch` database and the three tables on first start. View them in http://localhost/phpmyadmin after you also start Apache.
+1. Start MySQL in XAMPP.
+2. Copy `backend/.env.example` to `backend/.env`.
+3. Start the API: `cd backend` then `node src/server.js`.
+4. Start the site: `cd frontend` then `node .\node_modules\vite\bin\vite.js`.
+5. Open http://localhost:5173
 
 | Role | Email | Password |
 |---|---|---|
 | Student | student@edumatch.test | Student123! |
 | Teacher | anjali@edumatch.test | Teacher123! |
 | Admin | admin@edumatch.test | Admin123! |
+
+Admin password reset sets the password to `12346789`.
