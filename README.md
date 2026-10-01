@@ -14,22 +14,22 @@ Copy the example env file once:
 copy backend\.env.example backend\.env
 ```
 
-## One install, then run
+## Start the site
+
+Do not use `npm install` unless a package is missing. Run each line on its own.
+
+Terminal 1:
 
 ```powershell
 cd C:\Users\dvlne\edumatch\backend
-npm install
-cd ..\frontend
-npm install
-cd ..\backend
-node src/server.js
+& "C:\Program Files\nodejs\node.exe" src/server.js
 ```
 
-Second terminal:
+Terminal 2:
 
 ```powershell
 cd C:\Users\dvlne\edumatch\frontend
-node .\node_modules\vite\bin\vite.js
+& "C:\Program Files\nodejs\node.exe" .\node_modules\vite\bin\vite.js
 ```
 
 Open http://localhost:5173
