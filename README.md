@@ -76,7 +76,7 @@ The layout collapses to one column under 900px. Forms have labels and the shell 
 ## Demo accounts
 
 | Role | Email | Password |
-|---|---|
+|---|---|---|
 | Student | student@edumatch.test | Student123! |
 | Teacher | anjali@edumatch.test | Teacher123! |
 | Admin | admin@edumatch.test | Admin123! |
