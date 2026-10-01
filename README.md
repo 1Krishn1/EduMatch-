@@ -87,28 +87,29 @@ Admin password reset sets the password to `12346789`.
 
 ## Run locally
 
-1. Open XAMPP and start MySQL. Start Apache only if you want phpMyAdmin.
-2. Copy `backend/.env.example` to `backend/.env`. Default user is `root` with an empty password.
-3. Start the API:
+Do not paste `npm install` from this page. On this Windows laptop, npm reads the root `package.json` and stops. The modules are already installed. Start MySQL in XAMPP first, then use two terminals.
+
+Terminal 1, the API:
 
 ```powershell
-cd backend
-npm install
+cd C:\Users\dvlne\edumatch\backend
 node src/server.js
 ```
 
-4. Start the website in a second terminal:
+Terminal 2, the website:
 
 ```powershell
-cd frontend
-npm install
+cd C:\Users\dvlne\edumatch\frontend
 node .\node_modules\vite\bin\vite.js
 ```
 
-5. Open http://localhost:5173
-6. Open http://localhost/phpmyadmin and select the `edumatch` database to see `users`, `mentors` and `bookings`.
+Open http://localhost:5173
 
-The terminal should print `MySQL connected` and `EduMatch API running on http://localhost:5050`.
+The first terminal should print `MySQL connected` and `EduMatch API running on http://localhost:5050`.
+
+To see the tables, start Apache in XAMPP as well, open http://localhost/phpmyadmin and select the `edumatch` database. The tables are `users`, `mentors` and `bookings`.
+
+Copy `backend/.env.example` to `backend/.env` only if that file is missing. Default user is `root` with an empty password.
 
 ## Project structure
 
