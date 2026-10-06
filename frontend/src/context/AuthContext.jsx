@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { api, getToken } from "../api/client.js";
 
 const AuthContext = createContext(null);
+const API_CONFIGURED = Boolean(import.meta.env.VITE_API_URL);
 
 const DEMO_USERS = [
   { id: "demo-student", name: "Alex Student", email: "student@edumatch.test", password: "Student123!", role: "student", phone: "0400 111 222" },
@@ -24,6 +25,15 @@ function matchDemo(email, password, role) {
   );
 }
 
+function loginFromCopy(email, password, role) {
+  const demo = matchDemo(email, password, role);
+  if (!demo) {
+    if (matchDemo(email, password)) throw new Error(`This account is not a ${role} account.`);
+    throw new Error("Incorrect email or password.");
+  }
+  return publicDemo(demo);
+}
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => {
     const raw = localStorage.getItem("edumatch_user");
@@ -33,11 +43,7 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const token = getToken();
-    if (!token) {
-      setReady(true);
-      return;
-    }
-    if (token.startsWith("demo-")) {
+    if (!token || token.startsWith("demo-") || !API_CONFIGURED) {
       setReady(true);
       return;
     }
@@ -73,6 +79,11 @@ export function AuthProvider({ children }) {
       isTeacher: user?.role === "teacher",
       isStudent: user?.role === "student",
       login: async (email, password, role) => {
+        if (!API_CONFIGURED) {
+          const next = loginFromCopy(email, password, role);
+          persist(next, `demo-${next.id}`);
+          return next;
+        }
         try {
           const data = await api("/api/auth/login", {
             method: "POST",
@@ -80,13 +91,8 @@ export function AuthProvider({ children }) {
           });
           persist(data.user, data.token);
           return data.user;
-        } catch (err) {
-          const demo = matchDemo(email, password, role);
-          if (!demo) {
-            if (matchDemo(email, password)) throw new Error(`This account is not a ${role} account.`);
-            throw new Error(err.message || "Incorrect email or password.");
-          }
-          const next = publicDemo(demo);
+        } catch {
+          const next = loginFromCopy(email, password, role);
           persist(next, `demo-${next.id}`);
           return next;
         }
